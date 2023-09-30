@@ -33,6 +33,11 @@ class UserResource extends Resource
                             Wizard\Step::make('User Information')
                                 ->description('Enter basic user information')
                                 ->schema([
+                                    Forms\Components\SpatieMediaLibraryFileUpload::make('avatar')
+                                        ->directory('avatar')
+                                        ->collection('avatar')
+                                        ->imageEditor()
+                                        ->preserveFilenames(),
                                     Grid::make(2)
                                         ->schema([
                                             Forms\Components\TextInput::make('name')
