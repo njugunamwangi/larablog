@@ -6,6 +6,7 @@ use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -17,26 +18,33 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
     protected static ?string $navigationGroup = 'Post Management';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\SpatieMediaLibraryFileUpload::make('categories')
-                    ->directory('categories')
-                    ->collection('categories')
-                    ->imageEditor()
-                    ->preserveFilenames(),
-                Forms\Components\TextInput::make('category')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->disabled()
-                    ->unique(ignoreRecord: true)
-                    ->maxLength(255),
-            ]);
+                Section::make()
+                    ->schema([
+                        Forms\Components\SpatieMediaLibraryFileUpload::make('categories')
+                            ->label('Category')
+                            ->directory('categories')
+                            ->collection('categories')
+                            ->imageEditor()
+                            ->preserveFilenames(),
+                    ])->columnSpan(6),
+                Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('category')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->disabled()
+                            ->unique(ignoreRecord: true)
+                            ->maxLength(255),
+                    ])->columnSpan(6)
+            ])->columns(12);
     }
 
     public static function table(Table $table): Table
