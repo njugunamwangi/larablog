@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -59,8 +60,6 @@ class UserResource extends Resource
                                                 ->required()
                                                 ->visibleOn('create'),
                                         ]),
-                                    Forms\Components\RichEditor::make('bio')
-                                        ->columnSpanFull(),
                                     Grid::make(2)
                                         ->schema([
                                             Forms\Components\RichEditor::make('two_factor_secret')
@@ -75,6 +74,38 @@ class UserResource extends Resource
                                             Forms\Components\DateTimePicker::make('two_factor_confirmed_at'),
                                             Forms\Components\TextInput::make('current_team_id')
                                                 ->numeric(),
+                                        ])
+                                ]),
+                            Wizard\Step::make('Bio & Social Media')
+                                ->description('User\'s Bio and Social media pages')
+                                ->columnSpanFull()
+                                ->schema([
+                                    Forms\Components\RichEditor::make('bio')
+                                        ->columnSpanFull(),
+                                    Repeater::make('social')
+                                        ->columnSpanFull()
+                                        ->relationship()
+                                        ->schema([
+                                            Forms\Components\TextInput::make('facebook')
+                                                ->columnSpanFull()
+                                                ->prefix('https://facebook.com/')
+                                                ->placeholder("Enter your facebook username"),
+                                            Forms\Components\TextInput::make('instagram')
+                                                ->columnSpanFull()
+                                                ->prefix('https://instagram.com/')
+                                                ->placeholder("Enter your instagram username"),
+                                            Forms\Components\TextInput::make('linkedin')
+                                                ->columnSpanFull()
+                                                ->prefix('https://linkedin.com/in/')
+                                                ->placeholder("Enter your linkedin username"),
+                                            Forms\Components\TextInput::make('threads')
+                                                ->columnSpanFull()
+                                                ->prefix('https://threads.com/')
+                                                ->placeholder("Enter your threads username"),
+                                            Forms\Components\TextInput::make('x')
+                                                ->columnSpanFull()
+                                                ->prefix('https://x.com/')
+                                                ->placeholder("Enter your x username"),
                                         ])
                                 ]),
                             Wizard\Step::make('User Roles')
