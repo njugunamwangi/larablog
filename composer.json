@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-sluggable": "^3.5",
         "z3d0x/filament-logger": "^0.6.1"
     },
     "require-dev": {
