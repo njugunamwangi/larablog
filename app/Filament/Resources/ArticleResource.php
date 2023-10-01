@@ -16,6 +16,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Spatie\Permission\Models\Role;
 
 class ArticleResource extends Resource
 {
@@ -26,6 +27,15 @@ class ArticleResource extends Resource
 
     public static function form(Form $form): Form
     {
+
+        $authorRole = Role::where('name', 'author')->first();
+
+        $authors = User::role($authorRole)->get();
+
+        $editorRole = Role::where('name', 'editor')->first();
+
+        $editors = User::role($editorRole)->get();
+
         return $form
             ->schema([
                 Section::make()
@@ -62,14 +72,6 @@ class ArticleResource extends Resource
                             ->collection('articles')
                             ->imageEditor()
                             ->preserveFilenames(),
-                        Forms\Components\Select::make('status')
-                            ->options([
-                                'draft' => 'Draft',
-                                'reviewing' => 'Reviewing',
-                                'published' => 'Published',
-                            ])
-                            ->required()
-                            ->default('draft'),
                         Forms\Components\Select::make('category_id')
                             ->relationship('categories', 'category')
                             ->required()
@@ -82,15 +84,23 @@ class ArticleResource extends Resource
                             ->preload()
                             ->multiple()
                             ->searchable(),
+                        Forms\Components\Select::make('status')
+                            ->options([
+                                'draft' => 'Draft',
+                                'reviewing' => 'Reviewing',
+                                'published' => 'Published',
+                            ])
+                            ->required()
+                            ->default('draft'),
                         Forms\Components\Select::make('author_id')
-                            ->options(User::role('author')->get())
                             ->relationship('author', 'name')
+                            ->options($authors->pluck('name', 'id'))
                             ->searchable()
                             ->preload()
                             ->required(),
                         Forms\Components\Select::make('editor_id')
-                            ->options(User::role('editor')->get())
                             ->relationship('editor', 'name')
+                            ->options($editors->pluck('name', 'id'))
                             ->searchable()
                             ->preload()
                             ->required(),
