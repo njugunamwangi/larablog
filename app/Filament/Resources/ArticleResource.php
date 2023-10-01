@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ArticleResource\Pages;
 use App\Filament\Resources\ArticleResource\RelationManagers;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
@@ -27,15 +28,6 @@ class ArticleResource extends Resource
 
     public static function form(Form $form): Form
     {
-
-        $authorRole = Role::where('name', 'author')->first();
-
-        $authors = User::role($authorRole)->get();
-
-        $editorRole = Role::where('name', 'editor')->first();
-
-        $editors = User::role($editorRole)->get();
-
         return $form
             ->schema([
                 Section::make()
@@ -94,13 +86,19 @@ class ArticleResource extends Resource
                             ->default('draft'),
                         Forms\Components\Select::make('author_id')
                             ->relationship('author', 'name')
-                            ->options($authors->pluck('name', 'id'))
+                            ->options(User::role(Role::where('name', 'author')
+                                ->first())
+                                ->get()
+                                ->pluck('name', 'id'))
                             ->searchable()
                             ->preload()
                             ->required(),
                         Forms\Components\Select::make('editor_id')
                             ->relationship('editor', 'name')
-                            ->options($editors->pluck('name', 'id'))
+                            ->options(User::role(Role::where('name', 'editor')
+                                ->first())
+                                ->get()
+                                ->pluck('name', 'id'))
                             ->searchable()
                             ->preload()
                             ->required(),
@@ -163,11 +161,19 @@ class ArticleResource extends Resource
                         'published' => 'Published',
                     ]),
                 SelectFilter::make('author')
-                    ->relationship('author', 'name')
+                    ->options(User::role(Role::where('name', 'author')->first())->get()->pluck('name', 'id'))
+                    ->preload()
                     ->searchable(),
                 SelectFilter::make('editor')
-                    ->relationship('editor', 'name')
+                    ->options(User::role(Role::where('name', 'editor')->first())->get()->pluck('name', 'id'))
+                    ->preload()
+                    ->searchable(),
+                SelectFilter::make('category')
+                    ->label('Category')
+                    ->relationship('categories', 'category')
+                    ->options(Category::all()->pluck('name', 'id'))
                     ->searchable()
+                    ->preload()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
