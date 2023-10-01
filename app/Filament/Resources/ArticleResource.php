@@ -51,7 +51,6 @@ class ArticleResource extends Resource
                             ]),
                         Grid::make(2)
                             ->schema([
-                                Forms\Components\DateTimePicker::make('published_at'),
                                 Forms\Components\DateTimePicker::make('scheduled_for'),
                             ])
                     ])->columnSpan(8),
@@ -102,11 +101,18 @@ class ArticleResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultGroup('status')
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->color(fn (string $state): string => match ($state) {
+                        'draft' => 'gray',
+                        'reviewing' => 'warning',
+                        'published' => 'success',
+                    }),
                 Tables\Columns\TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable(),
