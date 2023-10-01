@@ -12,6 +12,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -139,6 +140,18 @@ class ArticleResource extends Resource
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                SelectFilter::make('status')
+                    ->options([
+                        'draft' => 'Draft',
+                        'reviewing' => 'Reviewing',
+                        'published' => 'Published',
+                    ]),
+                SelectFilter::make('author')
+                    ->relationship('author', 'name')
+                    ->searchable(),
+                SelectFilter::make('editor')
+                    ->relationship('editor', 'name')
+                    ->searchable()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
