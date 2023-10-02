@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
@@ -53,5 +55,24 @@ class Article extends Model implements HasMedia
 
     public function editor() : BelongsTo {
         return $this->belongsTo(User::class, 'editor_id');
+    }
+
+    public function shortBody($words = 30) : string {
+        return Str::words(strip_tags($this->body), $words);
+    }
+
+    public function getFormattedDate() {
+        return $this->published_at;
+    }
+
+    public function humanReadTime() : Attribute {
+        return new Attribute(
+            get: function($value, $attributes) {
+                $words = \Illuminate\Support\Str::wordCount(strip_tags($attributes['body']));
+                $minutes = ceil($words/200);
+
+                return $minutes . ' ' . str('min')->plural($minutes) . ' read, ' . $words . ' ' . str('words')->plural($words);
+            }
+        );
     }
 }
