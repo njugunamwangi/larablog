@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 2048);
             $table->string('slug', 2048);
             $table->longText('body');
-            $table->string('status');
+            $table->string('status')->default('draft');
             $table->datetime('published_at')->nullable();
             $table->datetime('scheduled_for')->nullable();
             $table->foreignId( 'author_id')->references('id')->on('users');
