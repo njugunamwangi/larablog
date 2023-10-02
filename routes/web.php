@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Article;
+use App\Livewire\Category;
+use App\Livewire\Location;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +29,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/category/{category:slug}', Category::class)->name('by-category');
+Route::get('/location/{location:slug}', Location::class)->name('by-location');
+Route::get('/{article:slug}', Article::class)->name('article');
