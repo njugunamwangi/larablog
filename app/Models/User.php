@@ -16,6 +16,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class User extends Authenticatable implements FilamentUser, HasMedia
 {
@@ -27,6 +29,7 @@ class User extends Authenticatable implements FilamentUser, HasMedia
     use TwoFactorAuthenticatable;
     use HasRoles;
     use SoftDeletes;
+    use HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -37,7 +40,8 @@ class User extends Authenticatable implements FilamentUser, HasMedia
         'name',
         'email',
         'password',
-        'bio'
+        'bio',
+        'slug'
     ];
 
     /**
@@ -77,5 +81,12 @@ class User extends Authenticatable implements FilamentUser, HasMedia
 
     public function social() : HasMany {
         return $this->hasMany(Social::class, 'user_id');
+    }
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }
