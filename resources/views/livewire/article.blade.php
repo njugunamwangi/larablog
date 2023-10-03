@@ -4,7 +4,7 @@
 
         <article class="flex flex-col shadow my-4">
             <!-- Article Image -->
-            <img src="{{ $article->getMedia('articles')->first()->getUrl() }}">
+            <img src="{{ $article->image() }}">
             <div class="bg-white flex flex-col justify-start p-6">
                 <p class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $article->title }}</p>
                 <p class="text-sm pb-8">

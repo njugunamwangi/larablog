@@ -41,6 +41,10 @@ class Article extends Model implements HasMedia
             ->saveSlugsTo('slug');
     }
 
+    public function image() {
+        return $this->getMedia('articles')->isEmpty() ? null : $this->getMedia('articles')->first()->getUrl();
+    }
+
     public function categories() : BelongsToMany {
         return $this->belongsToMany(Category::class);
     }
