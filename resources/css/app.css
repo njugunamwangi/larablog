@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+article a {
+    @apply text-blue-600
+}
+
 [x-cloak] {
     display: none;
 }
