@@ -1,8 +1,11 @@
 <?php
 
 use App\Livewire\Article;
+use App\Livewire\Author;
 use App\Livewire\Category;
+use App\Livewire\Home;
 use App\Livewire\Location;
+use App\Livewire\Site;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Site::class);
 
 Route::middleware([
     'auth:sanctum',
@@ -32,4 +33,5 @@ Route::middleware([
 
 Route::get('/category/{category:slug}', Category::class)->name('by-category');
 Route::get('/location/{location:slug}', Location::class)->name('by-location');
-Route::get('/{article:slug}', Article::class)->name('article');
+Route::get('/author/{user:slug}', Author::class)->name('author');
+Route::get('/article/{article:slug}', Article::class)->name('article');
