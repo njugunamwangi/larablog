@@ -4,10 +4,11 @@
 
         <nav>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+
                 @foreach($locations as $location)
                     <li>
                         <a
-                            class="hover:text-gray-200 hover:underline px-4 {{ request('location')?->slug === $location->slug ? 'bg-white-600 text-black' : '' }}"
+                            class="hover:text-gray-200 hover:underline px-4 {{ request('location')?->slug === $location->slug ? 'bg-white-600 text-amber-600' : '' }}"
                             href="{{ route('by-location', $location) }}">
                             {{ $location->location }}
                         </a>
