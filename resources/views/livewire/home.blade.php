@@ -11,13 +11,13 @@
                     <article class="flex flex-col shadow my-4">
                         <!-- Article Image -->
                         <a href="{{ route('article', $article) }}" class="hover:opacity-75" >
-                            <img src="{{ $article->getMedia('articles')->first()->getUrl() }}" alt="{{ $article->title }}" class="aspect-[4/3] object-contain">
+                            <img src="{{ $article->image() }}" alt="{{ $article->title }}" class="aspect-[4/3] object-contain">
                         </a>
                         <div class="bg-white flex flex-col justify-start p-6">
 
                             <a href="{{ route('article', $article) }}" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $article->title }}</a>
                             <p class="text-sm pb-3">
-                                By <a href="#" class="font-semibold hover:text-gray-800">{{ $article->author->name }}</a>
+                                By <a href="{{ route('author', $article->author->slug) }}" class="font-semibold hover:text-gray-800">{{ $article->author->name }}</a>
                             </p>
                             <p class="text-sm pb-3">
                                 Published on

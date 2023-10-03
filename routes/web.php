@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AllNews;
 use App\Livewire\Article;
 use App\Livewire\Author;
 use App\Livewire\Category;
@@ -35,3 +36,5 @@ Route::get('/category/{category:slug}', Category::class)->name('by-category');
 Route::get('/location/{location:slug}', Location::class)->name('by-location');
 Route::get('/author/{user:slug}', Author::class)->name('author');
 Route::get('/article/{article:slug}', Article::class)->name('article');
+Route::get('/all-news', AllNews::class)->name('all-news');
+

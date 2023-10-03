@@ -12,14 +12,15 @@
     <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
         <div class="w-full container mx-auto flex flex-wrap sm:flex-row items-center justify-between text-sm font-bold uppercase mt-0 px-6 py-2">
             <div>
-{{--                <a href="{{ route('all-news')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">All News</a>--}}
+                <a href="{{ route('all-news')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">All News</a>
                 @foreach($categories as $category)
                     <a href="{{ route('by-category', $category) }}"
                        class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">
                         {{ $category->category }}
                     </a>
                 @endforeach
-{{--                <a href="{{route('about-us')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">About us</a>--}}
+
+                {{--                <a href="{{route('about-us')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">About us</a>--}}
             </div>
 
 {{--            <div class="flex items-center">--}}
