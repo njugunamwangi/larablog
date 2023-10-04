@@ -11,7 +11,7 @@
                     <article class="flex flex-col shadow my-4">
                         <!-- Article Image -->
                         <a href="{{ route('article', $article) }}" class="hover:opacity-75" >
-                            <img src="{{ $article->getMedia('articles')->first()->getUrl() }}" alt="{{ $article->title }}" class="aspect-[4/3] object-contain">
+                            <img src="{{ $article->image() }}" alt="{{ $article->title }}" class="aspect-[4/3] object-contain">
                         </a>
                         <div class="bg-white flex flex-col justify-start p-6">
 
