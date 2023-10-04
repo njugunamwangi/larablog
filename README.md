@@ -5,6 +5,7 @@
 - [Activity Logger](https://filamentphp.com/plugins/z3d0x-logger).
 - [Spatie roles & Permissions](https://filamentphp.com/plugins/tharinda-rodrigo-spatie-roles-permissions).
 - [Spatie Media Library](https://filamentphp.com/plugins/filament-spatie-media-library).
+- [Breezy](https://github.com/jeffgreco13/filament-breezy).
 - [Laravel JetStream](https://jetstream.laravel.com/introduction.html).
 
 # Tech Stack
