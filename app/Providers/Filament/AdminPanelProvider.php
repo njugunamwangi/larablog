@@ -60,7 +60,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 BreezyCore::make()
-                    ->avatarUploadComponent(fn() => FileUpload::make('avatar_url')->disk('profile-photos'))
+                    ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
                     ->myProfile(
                         shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
                         shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)

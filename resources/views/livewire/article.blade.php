@@ -22,7 +22,7 @@
 
         <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
             <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
-                <img src="https://source.unsplash.com/collection/1346951/150x150?sig=1" class="rounded-full shadow h-32 w-32">
+                <img src="{{ $article->author->getFilamentAvatarUrl() }}" class="rounded-full shadow h-32 w-32">
             </div>
             <div class="flex-1 flex flex-col justify-center md:justify-start">
                 <p class="font-semibold text-2xl">{{ $article->author->name }}</p>
