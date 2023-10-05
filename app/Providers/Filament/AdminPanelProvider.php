@@ -3,6 +3,9 @@
 namespace App\Providers\Filament;
 
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\LocationResource;
+use Awcodes\FilamentQuickCreate\QuickCreatePlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -58,6 +61,11 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
+                QuickCreatePlugin::make()
+                    ->includes([
+                        CategoryResource::class,
+                        LocationResource::class
+                    ]),
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 FilamentProgressbarPlugin::make()->color('#29b'),
                 BreezyCore::make()
