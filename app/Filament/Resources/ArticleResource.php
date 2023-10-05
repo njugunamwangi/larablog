@@ -11,6 +11,8 @@ use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
+use Filament\Infolists\Components;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
@@ -63,6 +65,7 @@ class ArticleResource extends Resource
                             ->directory('articles')
                             ->collection('articles')
                             ->imageEditor()
+                            ->required()
                             ->preserveFilenames(),
                         Forms\Components\Select::make('category_id')
                             ->relationship('categories', 'category')
@@ -188,6 +191,47 @@ class ArticleResource extends Resource
                 ]),
             ]);
     }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Components\Section::make()
+                    ->schema([
+                        Components\Split::make([
+                            Components\Grid::make(2)
+                                ->schema([
+                                    Components\Group::make([
+                                        Components\TextEntry::make('title'),
+                                        Components\TextEntry::make('slug'),
+                                        Components\TextEntry::make('published_at')
+                                            ->badge()
+                                            ->date()
+                                            ->color('success'),
+                                    ]),
+                                    Components\Group::make([
+                                        Components\TextEntry::make('author.name'),
+                                        Components\TextEntry::make('editor.name'),
+                                        Components\TextEntry::make('categories.category'),
+                                        Components\TextEntry::make('locations.location'),
+                                    ]),
+                                ]),
+                            Components\ImageEntry::make('articles')
+                                ->hiddenLabel()
+                                ->grow(false),
+                        ])->from('lg'),
+                    ]),
+                Components\Section::make('Body')
+                    ->schema([
+                        Components\TextEntry::make('body')
+                            ->prose()
+                            ->markdown()
+                            ->hiddenLabel(),
+                    ])
+                    ->collapsed()
+            ]);
+    }
+
 
     public static function getRelations(): array
     {
