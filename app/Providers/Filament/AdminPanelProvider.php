@@ -23,6 +23,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
+use Pboivin\FilamentPeek\FilamentPeekPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -60,6 +61,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
+                FilamentPeekPlugin::make(),
                 QuickCreatePlugin::make()
                     ->includes([
                         CategoryResource::class,
