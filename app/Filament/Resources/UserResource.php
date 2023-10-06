@@ -23,6 +23,8 @@ class UserResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationGroup = 'User Management';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -197,5 +199,10 @@ class UserResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email', 'roles.name', 'permissions.name'];
     }
 }
