@@ -10,6 +10,11 @@ use Livewire\Component;
 class Sidebar extends Component
 {
     public Article $article;
+
+    public Category $category;
+
+    public Location $location;
+
     public function render()
     {
         $categories = Category::query()

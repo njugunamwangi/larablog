@@ -1,7 +1,11 @@
 <!-- Sidebar Section -->
 <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
-    <img src="{{ $article->image() }}" class="rounded">
+    @if($article)
+        <img src="{{ $article->image() }}" class="rounded">
+    @elseif($category)
+        <img src="{{ $category->image() }}" class="rounded">
+    @endif
 
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <h3 class="text-xl font-semibold mb-3">

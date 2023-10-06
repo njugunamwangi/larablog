@@ -30,4 +30,8 @@ class Category extends Model implements HasMedia
     public function articles() : BelongsToMany {
         return $this->belongsToMany(Article::class);
     }
+
+    public function image() {
+        return $this->getMedia('categories')->isEmpty() ? null : $this->getMedia('categories')->first()->getUrl();
+    }
 }
