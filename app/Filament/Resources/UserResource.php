@@ -10,6 +10,8 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
+use Filament\Infolists\Components;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -173,6 +175,29 @@ class UserResource extends Resource
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Components\Section::make()
+                    ->schema([
+                        Components\Split::make([
+                            Components\Grid::make(2)
+                                ->schema([
+                                    Components\Group::make([
+                                        Components\TextEntry::make('name'),
+                                        Components\TextEntry::make('email'),
+                                        Components\TextEntry::make('slug'),
+                                    ]),
+                                    Components\Group::make([
+                                        Components\TextEntry::make('roles.name'),
+                                    ]),
+                                ]),
+                        ])->from('lg'),
+                    ]),
             ]);
     }
 
