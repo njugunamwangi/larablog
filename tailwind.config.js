@@ -9,6 +9,7 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/awcodes/filament-quick-create/resources/**/*.blade.php'
     ],
 
     theme: {
