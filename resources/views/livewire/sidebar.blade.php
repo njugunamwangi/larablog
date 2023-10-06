@@ -22,4 +22,17 @@
         @endforeach
     </div>
 
+    <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+        <h3 class="text-xl font-semibold mb-3">
+            All Locations
+        </h3>
+        @foreach($locations as $location)
+            <a href="{{ route('by-location', $location) }}"
+                class="text-semibold hover:bg-blue-600 hover:text-white block py-2 px-3 rounded {{ request('location')?->slug === $location->slug ? 'bg-blue-600 text-white' : '' }} "
+            >
+                {{$location->location}} ({{ $location->total }})
+            </a>
+        @endforeach
+    </div>
+
 </aside>
