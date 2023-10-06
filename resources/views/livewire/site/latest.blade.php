@@ -26,7 +26,7 @@
                             </p>
                             <div>
                                 @foreach($article->categories as $category)
-                                    <a href="{{ route('by-category', $category) }}" class="bg-blue-500 mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
+                                    <a href="{{ route('by-category', $category) }}" class="bg-blue-500 mb-5 inline-block rounded-full py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
                                         {{$category->category}}
                                     </a>
                                 @endforeach
