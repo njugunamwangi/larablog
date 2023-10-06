@@ -15,7 +15,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
-        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         @livewire(\App\Livewire\Site\Location::class)
@@ -39,6 +38,5 @@
         <div class="container mx-auto flex flex-wrap py-6">
             {{ $slot }}
         </div>
-        @livewireScripts
     </body>
 </html>
