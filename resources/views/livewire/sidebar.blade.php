@@ -1,10 +1,12 @@
 <!-- Sidebar Section -->
-<aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+<aside class="w-full md:w-1/3 flex flex-col items-center px-3 pt-2">
 
     @if($article)
         <img src="{{ $article->image() }}" class="rounded">
     @elseif($category)
         <img src="{{ $category->image() }}" class="rounded">
+    @elseif($location)
+        <img src="{{ $location->image() }}" class="rounded">
     @endif
 
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">

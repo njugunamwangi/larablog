@@ -30,4 +30,8 @@ class Location extends Model implements HasMedia
     public function articles() : BelongsToMany {
         return $this->belongsToMany(Article::class);
     }
+
+    public function image() {
+        return $this->getMedia('locations')->isEmpty() ? null : $this->getMedia('locations')->first()->getUrl();
+    }
 }

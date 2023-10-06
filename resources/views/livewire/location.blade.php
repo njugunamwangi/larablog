@@ -1,5 +1,5 @@
-<div class="container mx-auto py-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="container mx-auto py-6 flex flex-wrap">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:w-2/3 flex flex-col px-3">
         <!-- Sort by Locations -->
         <div class="col-span-2">
 
@@ -22,7 +22,7 @@
                             </p>
                             <div>
                                 @foreach($article->categories as $category)
-                                    <a href="{{ route('by-category', $category) }}" class="bg-blue-500 mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
+                                    <a href="{{ route('by-category', $category) }}" class="bg-blue-500 mb-5 inline-block rounded-full py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
                                         {{$category->category}}
                                     </a>
                                 @endforeach
@@ -37,4 +37,6 @@
             </div>
         </div>
     </div>
+
+    <livewire:sidebar :location='$location' />
 </div>

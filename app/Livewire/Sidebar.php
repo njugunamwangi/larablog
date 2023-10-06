@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Location;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
