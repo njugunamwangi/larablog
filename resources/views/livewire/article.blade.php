@@ -48,6 +48,35 @@
                 </div>
             </article>
 
+            <div class="w-full flex pt-6">
+                <div class="w-1/2">
+                    @if($prev)
+                        <a href="{{ route('article', $prev) }}" class="block w-full bg-white shadow hover:shadow-md text-left p-6">
+                            <p class="text-lg text-blue-800 font-bold flex items-center"><x-heroicon-o-arrow-left-circle class="h-6 w-6" /> Previous</p>
+                            <p class="pt-2">
+                                {{ \Illuminate\Support\Str::words($prev->title, 5) }}
+                            </p>
+                        </a>
+                    @endif
+                </div>
+
+                <div class="w-1/2">
+                    @if($next)
+                        <a href="{{ route('article', $next) }}" class="block w-full bg-white shadow hover:shadow-md text-right p-6">
+                            <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <x-heroicon-o-arrow-right-circle class="h-6 w-6" /></p>
+                            <p class="pt-2">
+                                {{ \Illuminate\Support\Str::words($next->title, 5) }}
+                            </p>
+                        </a>
+                    @endif
+                </div>
+            </div>
+
+            <div class="py-4">
+                <h3 class="text-xl font-semibold mb-3">
+                    About the Author
+                </h3>
+            </div>
             <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
                 <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
                     <img src="{{ $article->author->getFilamentAvatarUrl() }}" class="rounded-full shadow h-32 w-32">
