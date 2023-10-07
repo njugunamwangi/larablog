@@ -17,9 +17,10 @@
         <!-- Styles -->
     </head>
     <body class="font-sans antialiased">
-        @livewire(\App\Livewire\Site\Location::class)
+        <livewire:site.location />
 
-        @livewire(\App\Livewire\Site\Category::class)
+        <livewire:site.category />
+
 
         <!-- Text Header -->
         <header class="w-full container mx-auto">
@@ -36,7 +37,9 @@
         </header>
 
         <div class="container mx-auto flex flex-wrap py-6">
+
             {{ $slot }}
+
         </div>
     </body>
 </html>
