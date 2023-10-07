@@ -19,9 +19,6 @@
     <body class="font-sans antialiased">
         <livewire:site.location />
 
-        <livewire:site.category />
-
-
         <!-- Text Header -->
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
@@ -35,6 +32,9 @@
                 </p>
             </div>
         </header>
+
+        <livewire:site.category />
+
 
         <div class="container mx-auto flex flex-wrap py-6">
 
