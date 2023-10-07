@@ -6,5 +6,6 @@
     </div>
 
     <!-- Recommended News -->
+    <livewire:site.recommended />
 </div>
 
