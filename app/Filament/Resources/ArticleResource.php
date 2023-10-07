@@ -12,6 +12,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Infolists\Components;
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -209,9 +210,14 @@ class ArticleResource extends Resource
                                         Components\TextEntry::make('title'),
                                         Components\TextEntry::make('slug'),
                                         Components\TextEntry::make('published_at')
+                                            ->date(),
+                                        Components\TextEntry::make('status')
                                             ->badge()
-                                            ->date()
-                                            ->color('success'),
+                                            ->color(fn (string $state): string => match ($state) {
+                                                'draft' => 'gray',
+                                                'reviewing' => 'warning',
+                                                'published' => 'success',
+                                            }),
                                     ]),
                                     Components\Group::make([
                                         Components\TextEntry::make('author.name'),
@@ -220,8 +226,9 @@ class ArticleResource extends Resource
                                         Components\TextEntry::make('locations.location'),
                                     ]),
                                 ]),
-                            Components\ImageEntry::make('articles')
-                                ->hiddenLabel()
+                            SpatieMediaLibraryImageEntry::make('articles')
+                                ->collection('articles')
+                                ->label('Featured Image')
                                 ->grow(false),
                         ])->from('lg'),
                     ]),
