@@ -34,6 +34,10 @@ class Article extends Model implements HasMedia
         'meta_description',
     ];
 
+    protected $casts = [
+        'published_at' => 'datetime'
+    ];
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -66,7 +70,7 @@ class Article extends Model implements HasMedia
     }
 
     public function getFormattedDate() {
-        return $this->published_at;
+        return $this->published_at->format('F jS, Y');
     }
 
     public function humanReadTime() : Attribute {
