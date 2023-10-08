@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use App\Livewire\AllNews;
 use App\Livewire\Article;
 use App\Livewire\Author;
@@ -7,6 +8,9 @@ use App\Livewire\Category;
 use App\Livewire\Home;
 use App\Livewire\Location;
 use App\Livewire\Site;
+use App\Livewire\Site\About;
+use App\Livewire\Site\PrivacyPolicy;
+use App\Livewire\Site\TermsConditions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +35,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Footer
+Route::get('/about-us', About::class)->name('about-us');
+Route::get('/terms-and-conditions', TermsConditions::class)->name('terms-and-conditions');
+Route::get('/privacy-policy', PrivacyPolicy::class)->name('privacy-policy');
 
 Route::get('/category/{category:slug}', Category::class)->name('by-category');
 Route::get('/location/{location:slug}', Location::class)->name('by-location');
