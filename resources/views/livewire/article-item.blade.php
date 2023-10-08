@@ -21,12 +21,15 @@
                 </a>
             @endforeach
         </div>
+
         <div class="pb-6 sm:prose prose-sm prose">
             <x-markdown>
                 {!! $article->shortBody() !!}
             </x-markdown>
         </div>
 
-        <a href="{{ route('article', $article) }}" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('article', $article) }}" class="flex gap-2 uppercase text-gray-800 hover:text-black">
+            Continue Reading <x-heroicon-o-arrow-right class="h-6 w-6" />
+        </a>
     </div>
 </article>
