@@ -23,12 +23,10 @@
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
                 <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="/">
-{{--                    {!! \App\Models\TextWidget::getTitle('header') !!}--}}
-                    Blog
+                    {!! \App\Models\TextWidget::getTitle('header') !!}
                 </a>
                 <p class="text-lg text-gray-600">
-{{--                    {!! \App\Models\TextWidget::getContent('tagline') !!}--}}
-                    Tagline
+                    {!! \App\Models\TextWidget::getContent('header') !!}
                 </p>
             </div>
         </header>
@@ -41,5 +39,19 @@
             {{ $slot }}
 
         </div>
+
+        <footer class="w-full border-t bg-white pb-12">
+            <div class="w-full container mx-auto flex flex-col items-center">
+                <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+                    <a href="{{ route('about-us') }}" class="uppercase px-3">About Us</a>
+                    <a href="{{ route('privacy-policy') }}" class="uppercase px-3">Privacy Policy</a>
+                    <a href="{{ route('terms-and-conditions') }}" class="uppercase px-3">Terms & Conditions</a>
+                </div>
+                <div class="uppercase pb-6">
+{{--                    &copy; {{ $metaTitle ?: \App\Models\TextWidget::getTitle('header') }}--}}
+                </div>
+            </div>
+        </footer>
+
     </body>
 </html>
