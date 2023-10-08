@@ -48,7 +48,8 @@
                     <a href="{{ route('terms-and-conditions') }}" class="uppercase px-3">Terms & Conditions</a>
                 </div>
                 <div class="uppercase pb-6">
-{{--                    &copy; {{ $metaTitle ?: \App\Models\TextWidget::getTitle('header') }}--}}
+                    <livewire:site.socials />
+                    &copy; {{ \App\Models\TextWidget::getTitle('header') }}
                 </div>
             </div>
         </footer>
