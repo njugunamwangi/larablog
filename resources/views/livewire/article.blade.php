@@ -21,7 +21,7 @@
                         </p>
                     </div>
 
-                    <div class="flex flex-row gap-2 justify-between">
+                    <div class="flex flex-row gap-2 mb-4 justify-between">
                         <div class="flex flex-row gap-2 ">
                             <x-heroicon-m-hashtag class="h-6 w-6 m-1 text-blue-600" />
                             @foreach($article->categories as $category)
@@ -40,6 +40,10 @@
                         </div>
                     </div>
                     <div class="sm:prose prose-sm prose prose-a:text-blue-600">
+                        <x-markdown class="rounded-md border border-gray-20 bg-gray-200">
+                            <p class="font-bold">Ancient Truth: </p>
+                            {!! $article->ancient_truth !!}
+                        </x-markdown>
                         <x-markdown>
                             {!! $article->body !!}
                         </x-markdown>

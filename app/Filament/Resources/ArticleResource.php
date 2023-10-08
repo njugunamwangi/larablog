@@ -48,6 +48,9 @@ class ArticleResource extends Resource
                             ->hiddenOn('create')
                             ->columnSpanFull()
                             ->maxLength(2048),
+                        Forms\Components\RichEditor::make('ancient_truth')
+                            ->required()
+                            ->columnSpanFull(),
                         Forms\Components\RichEditor::make('body')
                             ->required()
                             ->columnSpanFull(),
@@ -232,6 +235,14 @@ class ArticleResource extends Resource
                                 ->grow(false),
                         ])->from('lg'),
                     ]),
+                Components\Section::make('Ancient Truth')
+                    ->schema([
+                        Components\TextEntry::make('ancient_truth')
+                            ->prose()
+                            ->markdown()
+                            ->hiddenLabel(),
+                    ])
+                    ->collapsed(),
                 Components\Section::make('Body')
                     ->schema([
                         Components\TextEntry::make('body')
