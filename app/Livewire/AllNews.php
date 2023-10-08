@@ -9,9 +9,10 @@ class AllNews extends Component
 {
     public function render()
     {
-        $articles = Article::where('status', '=', 'published')
+        $articles = Article::query()
+            ->where('status', '=', 'published')
             ->orderBy('published_at', 'desc')
-            ->get();
+            ->paginate(10);
 
         return view('livewire.all-news', compact('articles'));
     }

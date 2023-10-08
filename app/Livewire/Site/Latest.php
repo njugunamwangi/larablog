@@ -9,7 +9,8 @@ class Latest extends Component
 {
     public function render()
     {
-        $latestArticles = Article::where('status', '=', 'published')
+        $latestArticles = Article::query()
+            ->where('status', '=', 'published')
             ->orderBy('published_at', 'desc')
             ->limit(2)
             ->get();
