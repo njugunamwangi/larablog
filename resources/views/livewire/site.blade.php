@@ -29,7 +29,7 @@
 
             <div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    @foreach($category->articles()->limit(3)->get() as $article)
+                    @foreach($category->articles()->where('status', '=', 'published')->limit(3)->get() as $article)
                         <div>
                             <livewire:article-item :article="$article" />
                         </div>
