@@ -11,7 +11,7 @@ class Article extends Component
     public \App\Models\Article $article;
     public function render()
     {
-        if (!$this->article->status = 'published') {
+        if ($this->article->status !== 'published') {
             throw new NotFoundHttpException;
         }
 
