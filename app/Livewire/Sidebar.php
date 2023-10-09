@@ -27,11 +27,9 @@ class Sidebar extends Component
 
     public function categories() {
         return Category::query()
-            ->whereHas('articles', function($query) {
-                $query->where('status', '=', 'published');
-            })
             ->leftJoin('article_category', 'categories.id', '=', 'article_category.category_id')
-            ->leftJoin('articles', 'articles.id', '=','article_category.article_id')
+            ->leftJoin('articles', 'article_category.article_id', '=', 'articles.id')
+            ->where('articles.status', '=', 'published')
             ->select('categories.category', 'categories.slug', DB::raw('count(*) as total'))
             ->groupBy('categories.id', 'categories.category', 'categories.slug')
             ->orderByDesc('total')
@@ -40,7 +38,9 @@ class Sidebar extends Component
 
     public function locations() {
         return Location::query()
-            ->join('article_location', 'locations.id', '=', 'article_location.location_id')
+            ->leftjoin('article_location', 'locations.id', '=', 'article_location.location_id')
+            ->leftJoin('articles', 'article_location.article_id', '=', 'articles.id')
+            ->where('articles.status', '=', 'published')
             ->select('locations.location', 'locations.slug', DB::raw('count(*) as total'))
             ->groupBy('locations.id', 'locations.location', 'locations.slug')
             ->orderByDesc('total')
