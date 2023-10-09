@@ -1,3 +1,14 @@
-<div>
-    {{-- The best athlete wants his opponent at his best. --}}
-</div>
+<section class="w-full flex flex-col items-center px-3">
+
+    <article class="flex flex-col shadow my-4">
+        <a href="#" class="hover:opacity-75">
+            <img src="{{ $widget->getMedia('text-widgets')->first()->getUrl() }}">
+        </a>
+        <div class="bg-white flex flex-col justify-start p-6">
+            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $widget->title }}</a>
+            <div>
+                {!! $widget->content !!}
+            </div>
+        </div>
+    </article>
+</section>
