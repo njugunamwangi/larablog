@@ -21,6 +21,8 @@ class CategoryResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
     protected static ?string $navigationGroup = 'Article Management';
 
+    protected static ?string $recordTitleAttribute = 'category';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -111,5 +113,15 @@ class CategoryResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['category', 'slug', 'articles.title'];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['articles']);
     }
 }

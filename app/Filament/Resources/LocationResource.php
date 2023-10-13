@@ -21,6 +21,8 @@ class LocationResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
     protected static ?string $navigationGroup = 'Article Management';
 
+    protected static ?string $recordTitleAttribute = 'location';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -114,5 +116,15 @@ class LocationResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['location', 'slug', 'articles.title'];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['articles']);
     }
 }
