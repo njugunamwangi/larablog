@@ -7,6 +7,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -70,8 +71,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return true;
     }
 
-    public function social() : HasMany {
-        return $this->hasMany(Social::class, 'user_id');
+    public function social() : HasOne {
+        return $this->hasOne(Social::class, 'user_id', 'id');
     }
 
     public function getSlugOptions() : SlugOptions

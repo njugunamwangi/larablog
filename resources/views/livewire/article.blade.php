@@ -92,16 +92,16 @@
                             {!! $article->author->bio !!}
                         </p>
                         <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4">
-                            <a class="" href="#">
+                            <a class="" href="https://facebook.com/{{ $article->author->social->facebook }}" >
                                 <x-fab-facebook class="h-6 w-6" />
                             </a>
-                            <a class="pl-4" href="#">
+                            <a class="pl-4" href="https://instagram.com/{{ $article->author->social->instagram }}">
                                 <x-fab-instagram class="h-6 w-6" />
                             </a>
-                            <a class="pl-4" href="#">
+                            <a class="pl-4" href="https://x.com/{{ $article->author->social->x }}">
                                 <x-fab-twitter class="h-6 w-6" />
                             </a>
-                            <a class="pl-4" href="#">
+                            <a class="pl-4" href="https://linkedin.com/in/{{ $article->author->social->linkedin }}">
                                 <x-fab-linkedin class="h-6 w-6" />
                             </a>
                         </div>
