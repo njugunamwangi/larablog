@@ -50,6 +50,7 @@
                             </x-markdown>
                         </div>
 
+                        <livewire:upvote-downvote :article='$article' />
                     </div>
                 </article>
 
