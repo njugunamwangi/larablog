@@ -2,13 +2,27 @@
 
 namespace App\Livewire;
 
+use App\Models\ArticleView;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Article extends Component
 {
     public \App\Models\Article $article;
+
+    public function mount(Request $request) {
+
+        $user = auth()->user();
+
+        ArticleView::create([
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+            'article_id' => $this->article->id,
+            'user_id' => $user ? $user->id : null,
+        ]);
+    }
     public function render()
     {
         if ($this->article->status !== 'published') {
