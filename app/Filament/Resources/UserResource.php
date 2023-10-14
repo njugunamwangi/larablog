@@ -141,8 +141,7 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('two_factor_confirmed_at')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('current_team_id')
                     ->numeric()
                     ->sortable()
