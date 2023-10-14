@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\OurSocial;
 use App\Models\TextWidget;
+use App\Policies\OurSocialPolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
 use App\Policies\TextWidgetPolicy;
@@ -22,6 +24,7 @@ class AuthServiceProvider extends ServiceProvider
         Role::class => RolePolicy::class,
         Permission::class => PermissionPolicy::class,
         TextWidget::class => TextWidgetPolicy::class,
+        OurSocial::class => OurSocialPolicy::class,
     ];
 
     /**
