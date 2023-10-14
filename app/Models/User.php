@@ -15,6 +15,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Sluggable\HasSlug;
@@ -25,6 +26,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
@@ -42,7 +44,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'password',
         'bio',
         'slug',
-        'avatar_url'
+        'avatar_url',
     ];
 
     /**
