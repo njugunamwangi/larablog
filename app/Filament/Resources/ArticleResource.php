@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ArticleResource\Pages;
 use App\Filament\Resources\ArticleResource\RelationManagers;
+use App\Filament\Resources\ArticleResource\Widgets\ArticleOverview;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
@@ -288,5 +289,12 @@ class ArticleResource extends Resource
     public static function getGlobalSearchEloquentQuery(): Builder
     {
         return parent::getGlobalSearchEloquentQuery()->with(['author', 'editor', 'categories', 'locations']);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            ArticleOverview::class,
+        ];
     }
 }

@@ -16,4 +16,11 @@ class ViewArticle extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            ArticleResource\Widgets\ArticleOverview::class
+        ];
+    }
 }
