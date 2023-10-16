@@ -5,7 +5,9 @@
     </a>
     <div class="bg-white flex flex-col justify-start p-6">
 
-        <a href="{{ route('article', $article) }}" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $article->title }}</a>
+        <a href="{{ route('article', $article) }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
+            {{ Str::words($article->title, 4) }}
+        </a>
         <p class="text-sm pb-3">
             By <a href="{{ route('author', $article->author->slug) }}" class="font-semibold hover:text-gray-800">{{ $article->author->name }}</a>
 
@@ -24,7 +26,7 @@
 
         <div class="pb-6 sm:prose prose-sm prose">
             <x-markdown>
-                {!! $article->shortBody() !!}
+                {!! $article->shortBody(20) !!}
             </x-markdown>
         </div>
 
