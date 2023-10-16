@@ -20,7 +20,7 @@ class ViewArticle extends ViewRecord
     protected function getHeaderWidgets(): array
     {
         return [
-            ArticleResource\Widgets\ArticleOverview::class
+            ArticleResource\Widgets\ArticleStats::class
         ];
     }
 }
