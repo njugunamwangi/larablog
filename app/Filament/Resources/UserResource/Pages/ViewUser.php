@@ -16,4 +16,11 @@ class ViewUser extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserResource\Widgets\UserStats::class
+        ];
+    }
 }
