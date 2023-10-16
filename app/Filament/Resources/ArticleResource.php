@@ -125,7 +125,7 @@ class ArticleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable(['title', 'body']),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable()
                     ->color(fn (string $state): string => match ($state) {
