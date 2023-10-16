@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@sentry/browser": "^7.40.0",
         "alpinejs": "^3.13.1",
         "shiki": "^0.14.4",
         "tailwind-fontawesome": "^0.5.0"

@@ -26,6 +26,7 @@
         "njxqlus/filament-progressbar": "^1.0",
         "owenvoke/blade-fontawesome": "^2.4",
         "pboivin/filament-peek": "2.0",
+        "sentry/sentry-laravel": "^3.8",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-markdown": "^2.4",
         "spatie/laravel-sluggable": "^3.5",
