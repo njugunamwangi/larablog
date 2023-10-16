@@ -78,6 +78,8 @@
                     </div>
                 </div>
 
+                <livewire:comments.comments :article="$article" />
+
                 <div class="py-4">
                     <h3 class="text-xl font-semibold mb-3">
                         About the Author
