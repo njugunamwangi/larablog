@@ -19,8 +19,7 @@
                         {{ $category->category }}
                     </a>
                 @endforeach
-
-                {{--                <a href="{{route('about-us')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">About us</a>--}}
+                <a href="{{route('about-us')}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">About us</a>
             </div>
 
             <div class="flex items-center">
