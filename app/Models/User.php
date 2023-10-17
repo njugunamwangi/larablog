@@ -99,4 +99,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
     public function articles() : HasMany {
         return $this->hasMany(Article::class, 'author_id', 'id');
     }
+
+    public function comments() : HasMany {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
 }
