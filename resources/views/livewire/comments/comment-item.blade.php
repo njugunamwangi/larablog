@@ -5,7 +5,7 @@
         </div>
         <div>
             <div>
-                <a href="" class="text-indigo-600 font-semibold">{{$comment->user->name}}</a>
+                <a href="" class="text-blue-600 font-semibold">{{$comment->user->name}}</a>
                 - <span class="text-gray-400">
                     {{$comment->created_at->diffForHumans() }}
                 </span>
@@ -18,7 +18,7 @@
                 </div>
             @endif
             <div>
-                <a wire:click.prevent="startReply" href="" class="text-indigo-600 text-sm mr-3">Reply</a>
+                <a wire:click.prevent="startReply" href="" class="text-blue-600 text-sm mr-3">Reply</a>
                 @if(\Illuminate\Support\Facades\Auth::id() === $comment->user_id)
                     <a wire:click.prevent="startCommentEdit" href="" class="text-blue-600 text-sm mr-3">Edit</a>
                     <a wire:click.prevent="deleteComment" href="" class="text-red-600 text-sm">Delete</a>
