@@ -7,6 +7,7 @@ use App\Livewire\Author;
 use App\Livewire\Category;
 use App\Livewire\Home;
 use App\Livewire\Location;
+use App\Livewire\Search;
 use App\Livewire\Site;
 use App\Livewire\Site\About;
 use App\Livewire\Site\PrivacyPolicy;
@@ -40,6 +41,7 @@ Route::middleware([
 Route::get('/about-us', About::class)->name('about-us');
 Route::get('/terms-and-conditions', TermsConditions::class)->name('terms-and-conditions');
 Route::get('/privacy-policy', PrivacyPolicy::class)->name('privacy-policy');
+Route::get('/search', Search::class)->name('search');
 
 Route::get('/category/{category:slug}', Category::class)->name('by-category');
 Route::get('/location/{location:slug}', Location::class)->name('by-location');
