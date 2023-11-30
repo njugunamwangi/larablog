@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10d5cbd2a0dfbc190f2dda60676c7692",
+    "content-hash": "5894b450806b4ad93c01badd0f1aa2a2",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -7841,16 +7841,16 @@
         },
         {
             "name": "spatie/laravel-analytics",
-            "version": "5.0.3",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-analytics.git",
-                "reference": "778724f90bd4b78ede960d89de9656da030f2e0b"
+                "reference": "0687e1051f726a2bbab2adcf2245adf751aa641e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/778724f90bd4b78ede960d89de9656da030f2e0b",
-                "reference": "778724f90bd4b78ede960d89de9656da030f2e0b",
+                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/0687e1051f726a2bbab2adcf2245adf751aa641e",
+                "reference": "0687e1051f726a2bbab2adcf2245adf751aa641e",
                 "shasum": ""
             },
             "require": {
@@ -7907,7 +7907,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-analytics/tree/5.0.3"
+                "source": "https://github.com/spatie/laravel-analytics/tree/5.1.0"
             },
             "funding": [
                 {
@@ -7915,7 +7915,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-07-10T07:34:18+00:00"
+            "time": "2023-10-25T10:20:35+00:00"
         },
         {
             "name": "spatie/laravel-markdown",
@@ -14247,5 +14247,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
