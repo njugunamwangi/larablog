@@ -8,9 +8,6 @@
         <livewire:site.popular />
     </div>
 
-    <!-- Recommended News -->
-    <livewire:site.recommended />
-
     <!-- Latest Categories -->
     @foreach($categories as $category)
         <div>

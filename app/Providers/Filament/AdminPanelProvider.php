@@ -45,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-
+                // Analytics::fetchMostVisitedPages(Period::days(7))
             ])
             ->middleware([
                 EncryptCookies::class,
