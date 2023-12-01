@@ -20,6 +20,8 @@
     <body class="font-sans antialiased">
         <livewire:site.location />
 
+        <livewire:site.category />
+
         <!-- Text Header -->
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
@@ -32,7 +34,7 @@
             </div>
         </header>
 
-        <livewire:site.category />
+
 
         <livewire:site.ticker-tape />
 
