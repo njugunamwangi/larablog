@@ -20,7 +20,7 @@ class Locale extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('sub')
+            ->generateSlugsFrom('locale')
             ->saveSlugsTo('slug');
     }
 
