@@ -14,7 +14,7 @@
             All Categories
         </h3>
         @foreach($categories as $category)
-            <a href="{{ route('by-category', $category) }}"
+            <a wire:navigate href="{{ route('by-category', $category) }}"
                 class="text-semibold hover:bg-blue-600 hover:text-white block py-2 px-3 rounded {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }} "
             >
                 {{$category->category}} ({{ $category->total }})
@@ -27,7 +27,7 @@
             All Locations
         </h3>
         @foreach($locations as $location)
-            <a href="{{ route('by-location', $location) }}"
+            <a wire:navigate href="{{ route('by-location', $location) }}"
                 class="text-semibold hover:bg-blue-600 hover:text-white block py-2 px-3 rounded {{ request('location')?->slug === $location->slug ? 'bg-blue-600 text-white' : '' }} "
             >
                 {{$location->location}} ({{ $location->total }})

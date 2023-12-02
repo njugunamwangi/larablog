@@ -7,7 +7,7 @@
 
                 @foreach($locations as $location)
                     <li>
-                        <a
+                        <a wire:navigate
                             class="hover:text-gray-200 hover:underline px-4 {{ request('location')?->slug === $location->slug ? 'bg-white-600 text-amber-600' : '' }}"
                             href="{{ route('by-location', $location) }}">
                             {{ $location->location }}
@@ -19,16 +19,16 @@
 
         <div class="flex items-center text-lg no-underline text-white pr-6">
             <a class="" href="#">
-                <i class="fab fa-facebook"></i>
+                <x-fab-facebook class="h-6 w-6" />
             </a>
             <a class="pl-6" href="#">
-                <i class="fab fa-instagram"></i>
+                <x-fab-instagram class="h-6 w-6" />
             </a>
             <a class="pl-6" href="#">
-                <i class="fab fa-twitter"></i>
+                <x-fab-twitter class="h-6 w-6" />
             </a>
             <a class="pl-6" href="#">
-                <i class="fab fa-linkedin"></i>
+                <x-fab-linkedin class="h-6 w-6" />
             </a>
         </div>
     </div>

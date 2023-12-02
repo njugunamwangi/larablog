@@ -6,12 +6,12 @@
     @foreach($popularArticles  as $article)
         <div class="grid grid-cols-4 gap-2 mb-4">
             <div class="pt-2">
-                <a href="{{ route('article', $article) }}">
+                <a wire:navigate href="{{ route('article', $article) }}" wire:navigate>
                     <img src="{{ $article->image() }}" alt="{{$article->title}}" />
                 </a>
             </div>
             <div class="col-span-3">
-                <a href="{{ route('article', $article) }}">
+                <a wire:navigate href="{{ route('article', $article) }}" wire:navigate>
                     <h3 class="text-bold text-blue-500 whitespace-nowrap truncate">{{$article->title}}</h3>
                 </a>
                 <div class="text-xs p-2">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="text-xs">
                         @foreach($article->locations as $location)
-                            <a href="{{ route('by-location', $location) }}" class="bg-lime-700 inline-block rounded-full py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
+                            <a wire:navigate href="{{ route('by-location', $location) }}" class="bg-lime-700 inline-block rounded-full py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
                                 {{$location->location}}
                             </a>
                         @endforeach

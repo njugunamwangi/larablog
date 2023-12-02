@@ -14,9 +14,9 @@
             tabindex="-1">
             <div class="py-1" role="none">
                 @foreach($articles as $article)
-                    <a href="{{ route('article', $article) }}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-400 hover:text-white" role="menuitem" tabindex="-1" id="menu-item-0">
+                    <a href="{{ route('article', $article) }}" wire:navigate class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-400 hover:text-white" role="menuitem" tabindex="-1" id="menu-item-0">
                         {{ $article->title }}
-                        <small>{{ $article->author->name }}</small>
+                        <small>By {{ $article->author->name }}</small>
                     </a>
                 @endforeach
             </div>

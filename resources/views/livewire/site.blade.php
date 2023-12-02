@@ -18,7 +18,7 @@
                     </h2>
                 </div>
                 <div class="text-sm">
-                    <a href="{{ route('by-category', $category) }}">
+                    <a wire:navigate href="{{ route('by-category', $category) }}">
                         Read more
                     </a>
                 </div>
