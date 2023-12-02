@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
+use App\Filament\Resources\CategoryResource\RelationManagers\ArticlesRelationManager;
+use App\Filament\Resources\CategoryResource\RelationManagers\SubsRelationManager;
 use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -93,7 +95,8 @@ class CategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ArticlesRelationManager::class
+            ArticlesRelationManager::class,
+            SubsRelationManager::class,
         ];
     }
 
