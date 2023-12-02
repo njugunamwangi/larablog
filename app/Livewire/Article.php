@@ -29,10 +29,12 @@ class Article extends Component
             throw new NotFoundHttpException;
         }
 
+        $title = $this->article->title;
+
         $prev = $this->prev();
         $next = $this->next();
 
-        return view('livewire.article', compact('prev', 'next'));
+        return view('livewire.article', compact('prev', 'next', 'title'));
     }
 
     public function prev() {
