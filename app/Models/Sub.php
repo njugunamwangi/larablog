@@ -20,7 +20,7 @@ class Sub extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('category')
+            ->generateSlugsFrom('sub')
             ->saveSlugsTo('slug');
     }
 
