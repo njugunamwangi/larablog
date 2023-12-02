@@ -36,6 +36,10 @@ class Category extends Model implements HasMedia
         return $this->hasMany(Sub::class);
     }
 
+    public function locales(): HasMany {
+        return $this->hasMany(Locale::class);
+    }
+
     public function image() {
         return $this->getMedia('categories')->isEmpty() ? null : $this->getMedia('categories')->first()->getUrl();
     }
