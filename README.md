@@ -37,7 +37,7 @@ npm install
 php artisan migrate
 ```
 
-Create admin user
+- Create admin user
 ```bash
 php artisan make:filament-user
 ```
@@ -61,22 +61,22 @@ npm run dev
 insert into roles (name, guard) values ('Admin', 'web')
 ```
 
-Assign role to user
+- Assign role to user
 ```bash
 insert into model_has_roles (role_id, model_type, model_id) values (1, 'App\\Models\\User', 1);
 ```
 
-Generate the permissions 
+- Generate the permissions 
 ```bash
 php artisan permissions:sync
 ```
 
-Navigate to the admin dashboard and assign all the permissions to the admin
+- Navigate to the admin dashboard and assign all the permissions to the admin
 ```bash
 your_domain/admin/roles/1/edit
 ```
 
-Save then refresh the dashboard
+- Save then refresh the dashboard
 
 
 ## License
