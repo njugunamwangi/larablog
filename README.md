@@ -1,6 +1,6 @@
 ## About Project
 
-# Plugins
+## Plugins
 
 - [Activity Logger](https://filamentphp.com/plugins/z3d0x-logger).
 - [Spatie roles & Permissions](https://filamentphp.com/plugins/tharinda-rodrigo-spatie-roles-permissions).
@@ -8,11 +8,16 @@
 - [Breezy](https://github.com/jeffgreco13/filament-breezy).
 - [Laravel JetStream](https://jetstream.laravel.com/introduction.html).
 
-# Tech Stack
+## Tech Stack
 
 - [Laravel](https://laravel.com).
 - [TailwindCSS](https://tailwindcss.com).
 - [FilamentPHP V3](https://filamentphp.com).
+
+## Functionality
+
+- Email verification
+- Enable 2FA
 
 
 ## Prerequisites
@@ -36,6 +41,16 @@ git clone https://github.com/njugunamwangi/laravel-livewire.git
  ```bash
 copy .env.example .env
 ```
+
+- Grab the email test credentials from mailtrap.io and replace in the .env file
+```bash
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=xxxxxxx
+MAIL_PASSWORD=xxxxxxx
+```
+
 - Install composer dependencies bu running composer install
  ```bash
 composer install
@@ -48,11 +63,6 @@ npm install
 - Migrate the database
 ```bash
 php artisan migrate
-```
-
-- Create admin user
-```bash
-php artisan make:filament-user
 ```
 
 - Generate laravel application key using 
