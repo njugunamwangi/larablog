@@ -18,6 +18,8 @@
 
 - Email verification
 - Enable 2FA
+- Likes and Dislikes
+- Commenting
 
 
 ## Prerequisites
