@@ -14,6 +14,19 @@
 - [TailwindCSS](https://tailwindcss.com).
 - [FilamentPHP V3](https://filamentphp.com).
 
+
+## Prerequisites
+
+- Import the database to get a few things started
+
+- Admin credentials
+```bash
+email: admin@admin.dev
+password: Admin123
+```
+
+- Remember to checkout the screenshots folder
+
 ## Installation
 - Clone the repository
 ```bash
@@ -56,28 +69,10 @@ php artisan serve
 npm run dev
 ```
 
-- Add Admin role 
+- Storage
 ```bash
-insert into roles (name, guard) values ('Admin', 'web')
+php artisan storage:link
 ```
-
-- Assign role to user
-```bash
-insert into model_has_roles (role_id, model_type, model_id) values (1, 'App\\Models\\User', 1);
-```
-
-- Generate the permissions 
-```bash
-php artisan permissions:sync
-```
-
-- Navigate to the admin dashboard and assign all the permissions to the admin
-```bash
-your_domain/admin/roles/1/edit
-```
-
-- Save then refresh the dashboard
-
 
 ## License
 
