@@ -34,7 +34,6 @@ class Popular extends Component
                 'articles.deleted_at',
                 'articles.created_at',
                 'articles.updated_at',
-                'articles.ancient_truth',
             )
             ->limit(6)
             ->get();

@@ -26,7 +26,6 @@ class Article extends Model implements HasMedia
         'title',
         'slug',
         'body',
-        'ancient_truth',
         'status',
         'published_at',
         'scheduled_for',

@@ -41,10 +41,6 @@
                             </div>
                         </div>
                         <div class="sm:prose prose-sm prose prose-a:text-blue-600">
-                            <x-markdown class="rounded-md border border-gray-20 bg-gray-200">
-                                <p class="font-bold">Ancient Truth: </p>
-                                {!! $article->ancient_truth !!}
-                            </x-markdown>
                             <x-markdown>
                                 {!! $article->body !!}
                             </x-markdown>
