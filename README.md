@@ -32,7 +32,7 @@ email: admin@admin.dev
 password: Admin123
 ```
 
-- Remember to checkout the screenshots folder
+- Remember to checkout the screenshots folder in the root directory 
 
 ## Installation
 - Clone the repository
@@ -60,11 +60,6 @@ composer install
 - Install npm dependencies
 ```bash
 npm install
-```
-
-- Migrate the database
-```bash
-php artisan migrate
 ```
 
 - Generate laravel application key using 
