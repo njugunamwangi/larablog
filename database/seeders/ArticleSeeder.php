@@ -15,11 +15,11 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        Article::factory()
+        Article::factory(20)
             ->create()
             ->each(function(Article $article) {
-                $categories = Category::all()->random(4)->pluck('id')->toArray();
-                $locations = Location::all()->random(4)->pluck('id')->toArray();
+                $categories = Category::all()->random(2)->pluck('id')->toArray();
+                $locations = Location::all()->random(2)->pluck('id')->toArray();
 
                 $article->categories()->attach($categories);
                 $article->locations()->attach($locations);

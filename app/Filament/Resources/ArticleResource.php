@@ -91,6 +91,7 @@ class ArticleResource extends Resource
                                 'reviewing' => 'Reviewing',
                                 'published' => 'Published',
                             ])
+                            ->searchable()
                             ->required()
                             ->default('draft'),
                         Forms\Components\Select::make('author_id')

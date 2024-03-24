@@ -23,6 +23,8 @@ class ArticleFactory extends Factory
             'title' => $title = fake()->sentence(),
             'slug' => Str::slug($title),
             'body' => fake()->paragraph(),
+            'status' => fake()->randomElement(['draft', 'reviewing', 'published']),
+            'published_at' => now(),
             'author_id' => fake()->randomElement(User::role(Role::IS_AUTHOR)->pluck('id')),
             'editor_id' => fake()->randomElement(User::role(Role::IS_EDITOR)->pluck('id')),
         ];
