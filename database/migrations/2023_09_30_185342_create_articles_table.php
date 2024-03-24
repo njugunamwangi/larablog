@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('status')->default('draft');
             $table->datetime('published_at')->nullable();
             $table->datetime('scheduled_for')->nullable();
-            $table->foreignId( 'author_id')->references('id')->on('users');
-            $table->foreignId( 'editor_id')->references('id')->on('users');
+            $table->foreignId('author_id')->nullable()->references('id')->on('users');
+            $table->foreignId('editor_id')->nullable()->references('id')->on('users');
             $table->string('meta_title', 255)->nullable();
             $table->string('meta_description', 255)->nullable();
             $table->softDeletes();
