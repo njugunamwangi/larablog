@@ -62,14 +62,19 @@ composer install
 npm install
 ```
 
+- Migrate
+```bash
+php artisan migrate
+```
+
 - Generate the permissions
 ```bash
 php artisan permissions:sync
 ```
 
-- Run migration and seeders
+- Run seeders
 ```bash
-php artisan migrate --seed
+php artisan db:seed
 ```
 
 - Generate laravel application key using 
