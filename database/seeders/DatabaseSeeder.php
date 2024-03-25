@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             LocationSeeder::class,
             ArticleSeeder::class,
+            TextWidgetSeeder::class,
         ]);
     }
 }
