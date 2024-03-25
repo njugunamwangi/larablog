@@ -18,6 +18,15 @@ class AuthorSeeder extends Seeder
 
         foreach($authors as $author) {
             $author->assignRole(Role::IS_AUTHOR);
+
+            $author->social()->create([
+                'user_id' => $author->id,
+                'facebook' => $author->slug,
+                'instagram' => $author->slug,
+                'linkedin' => $author->slug,
+                'threads' => $author->slug,
+                'x' => $author->slug,
+            ]);
         }
     }
 }

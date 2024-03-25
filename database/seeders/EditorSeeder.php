@@ -14,10 +14,19 @@ class EditorSeeder extends Seeder
      */
     public function run(): void
     {
-        $editors = User::factory(5)->create();
+        $editors = User::factory(2)->create();
 
         foreach($editors as $editor) {
             $editor->assignRole(Role::IS_EDITOR);
+
+            $editor->social()->create([
+                'user_id' => $editor->id,
+                'facebook' => $editor->slug,
+                'instagram' => $editor->slug,
+                'linkedin' => $editor->slug,
+                'threads' => $editor->slug,
+                'x' => $editor->slug,
+            ]);
         }
     }
 }
