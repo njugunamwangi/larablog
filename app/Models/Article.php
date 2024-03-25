@@ -47,7 +47,7 @@ class Article extends Model implements HasMedia
     }
 
     public function image() {
-        return $this->getMedia('articles')->isEmpty() ? null : $this->getMedia('articles')->first()->getUrl();
+        return $this->getMedia('articles')->isEmpty() ? "https://placehold.co/600x400?text=article" : $this->getMedia('articles')->first()->getUrl();
     }
 
     public function categories() : BelongsToMany {
