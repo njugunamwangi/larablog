@@ -21,23 +21,10 @@
 - Likes and Dislikes
 - Commenting
 
-
-## Prerequisites
-
-- Import the database to get a few things started
-
-- Admin credentials
-```bash
-email: admin@admin.dev
-password: Admin123
-```
-
-- Remember to checkout the screenshots folder in the root directory 
-
 ## Installation
 - Clone the repository
 ```bash
-git clone https://github.com/njugunamwangi/laravel-livewire.git
+git clone https://github.com/njugunamwangi/larablog.git
 ```
 - On the root of the directory, copy and paste .env.example onto .env and configure the database accordingly
  ```bash
@@ -95,6 +82,22 @@ npm run dev
 ```bash
 php artisan storage:link
 ```
+
+## Prerequisites
+
+- Admin dashboard 
+```bash
+http://APP_URL/admin
+```
+
+- Admin credentials
+```bash
+email: admin@admin.dev
+password: Admin123
+```
+
+- Remember to checkout the screenshots folder in the root directory 
+
 
 ## License
 
