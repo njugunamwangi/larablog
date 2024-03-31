@@ -34,7 +34,8 @@ class Article extends Component
         $prev = $this->prev();
         $next = $this->next();
 
-        return view('livewire.article', compact('prev', 'next', 'title'));
+        return view('livewire.article', compact('prev', 'next', 'title'))
+            ->title($this->article->title);
     }
 
     public function prev() {

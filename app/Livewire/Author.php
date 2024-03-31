@@ -13,7 +13,8 @@ class Author extends Component
     {
         $articles = $this->byAuthor();
 
-        return view('livewire.author', compact('articles'));
+        return view('livewire.author', compact('articles'))
+            ->title($this->user->name);
     }
 
     public function byAuthor() {

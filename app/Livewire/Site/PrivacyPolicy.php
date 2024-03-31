@@ -3,11 +3,13 @@
 namespace App\Livewire\Site;
 
 use App\Models\TextWidget;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PrivacyPolicy extends Component
 {
+    #[Title('Privacy Policy')]
     public function render()
     {
         $widget = TextWidget::query()

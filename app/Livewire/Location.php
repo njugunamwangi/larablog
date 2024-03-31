@@ -13,7 +13,8 @@ class Location extends Component
     {
         $articles = $this->byLocations();
 
-        return view('livewire.location', compact('articles'));
+        return view('livewire.location', compact('articles'))
+            ->title($this->location->location);
     }
 
     public function byLocations() {

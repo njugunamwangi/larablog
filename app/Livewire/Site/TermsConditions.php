@@ -3,11 +3,13 @@
 namespace App\Livewire\Site;
 
 use App\Models\TextWidget;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class TermsConditions extends Component
 {
+    #[Title('Terms & Conditions')]
     public function render()
     {
         $widget = TextWidget::query()

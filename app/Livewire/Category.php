@@ -12,7 +12,8 @@ class Category extends Component
     {
         $articles = $this->byCategory();
 
-        return view('livewire.category', compact('articles'));
+        return view('livewire.category', compact('articles'))
+            ->title($this->category->category);
     }
 
     public function byCategory() {
