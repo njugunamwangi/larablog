@@ -5,9 +5,11 @@ namespace App\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Category;
+use Livewire\Attributes\Title;
 
 class Site extends Component
 {
+    #[Title(null)]
     public function render()
     {
         $categories = $this->categories();
